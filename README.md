@@ -68,13 +68,40 @@ export const firestore = firebase.firestore()
   - In firebase account/project overview/project settings/
   - Then Build/Authentication/signin method/
   - Import the signIn with Google method to sign in component
+  ```
+  export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  //to get a firestore snapshot of user to add to firestore database
+  const snapShot = await userRef.get();
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+    try {
+      //create a new user ref
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      });
+    } catch (error) {
+      console.log('error creating user', error.message);
+    }
+  }
+  return userRef;
+  };
+  ```
+
+```
 
 ## React tips
 
 - When importing SVG in React we can use `import {ReactComponent as Logo}`. The `ReactComponent` import name is special and tells Create React App that you want a React component that renders an SVG, rather than its filename. This is React library special syntax. More info [here](https://create-react-app.dev/docs/adding-images-fonts-and-files/).
 
-### The jof of a React Developer
+### The job of a React Developer
 
 1. Decide on Components
 2. Decide the State and where it lives
 3. What changes when state changes
+```
