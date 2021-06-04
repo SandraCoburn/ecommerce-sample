@@ -108,3 +108,28 @@ export const firestore = firebase.firestore()
 - Single source of thrut
 - State is read only (immutability)
 - Changes using pure functions
+
+### Memoization
+
+- When we use a selector in Redux, the component gets called with every rendering of any other component creating new state every time even if the value is the same.
+- We can cache these selectors(memoization) using reselect library that will check if the values of the selectors are the same the component should not be re rendered. These selectors can be made reusable.
+
+  - Add library to project: `yarn add reselect`
+  - import { createSelector } from 'reselect'
+
+  ```
+  import { createSelector } from 'reselect';
+
+  const selectCart = (state) => state.cart;
+
+  //Memoized selector
+  export const selectCartItems = createSelector(
+    [selectCart],
+    (cart) => cart.cartItems
+  );
+
+  export const selectCartItemsCount = createSelector(
+    [selectCartItems],
+    (cartItems) => cartItems.reduce((total, item) => total + item.quantity, 0)
+  );
+  ```
