@@ -114,6 +114,8 @@ export const firestore = firebase.firestore()
 - When we use a selector in Redux, the component gets called with every rendering of any other component creating new state every time even if the value is the same.
 - We can cache these selectors(memoization) using reselect library that will check if the values of the selectors are the same the component should not be re rendered. These selectors can be made reusable.
 
+  - Redux's mapStateToProps has a shallow equality check for every value in the object. It wont' replace values if they pass a shallow equality check which means it won't needlessly re-render, but if we have transformation logic it's still valuable to memoize it with a selector to save us running duplicate logic to get the same output.
+
   - Add library to project: `yarn add reselect`
   - import { createSelector } from 'reselect'
 
