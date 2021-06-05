@@ -10,6 +10,7 @@ E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 - `GraphQL`
 - [`Firebase`](https://firebase.google.com/docs/database) - Store and sinc data with NoSQL cloud database. Data is synced across all clients in realtime, and remains available when your app goes offline
 - `SASS` - A SASS file is a Syntactically Awesome StyleSheets file. It contains Sass syntax, which is an extension of CSS used to format the layout of webpages.
+- [`UTF-8 Dingbats`](https://www.w3schools.com/charsets/ref_utf_dingbats.asp) Represents on browser what characters are displayed in HTML
 
 ### Getting Started
 
@@ -108,3 +109,30 @@ export const firestore = firebase.firestore()
 - Single source of thrut
 - State is read only (immutability)
 - Changes using pure functions
+
+### Memoization
+
+- When we use a selector in Redux, the component gets called with every rendering of any other component creating new state every time even if the value is the same.
+- We can cache these selectors(memoization) using reselect library that will check if the values of the selectors are the same the component should not be re rendered. These selectors can be made reusable.
+
+  - Redux's mapStateToProps has a shallow equality check for every value in the object. It wont' replace values if they pass a shallow equality check which means it won't needlessly re-render, but if we have transformation logic it's still valuable to memoize it with a selector to save us running duplicate logic to get the same output.
+
+  - Add library to project: `yarn add reselect`
+  - import { createSelector } from 'reselect'
+
+  ```
+  import { createSelector } from 'reselect';
+
+  const selectCart = (state) => state.cart;
+
+  //Memoized selector
+  export const selectCartItems = createSelector(
+    [selectCart],
+    (cart) => cart.cartItems
+  );
+
+  export const selectCartItemsCount = createSelector(
+    [selectCartItems],
+    (cartItems) => cartItems.reduce((total, item) => total + item.quantity, 0)
+  );
+  ```
