@@ -10,6 +10,7 @@ E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 - `GraphQL`
 - [`Firebase`](https://firebase.google.com/docs/database) - Store and sinc data with NoSQL cloud database. Data is synced across all clients in realtime, and remains available when your app goes offline
 - `SASS` - A SASS file is a Syntactically Awesome StyleSheets file. It contains Sass syntax, which is an extension of CSS used to format the layout of webpages.
+- [`UTF-8 Dingbats`](https://www.w3schools.com/charsets/ref_utf_dingbats.asp) Represents on browser what characters are displayed in HTML
 
 ### Getting Started
 
