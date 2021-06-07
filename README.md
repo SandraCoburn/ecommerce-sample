@@ -100,7 +100,7 @@ export const firestore = firebase.firestore()
 
 - When importing SVG in React we can use `import {ReactComponent as Logo}`. The `ReactComponent` import name is special and tells Create React App that you want a React component that renders an SVG, rather than its filename. This is React library special syntax. More info [here](https://create-react-app.dev/docs/adding-images-fonts-and-files/).
 
-### The job of a React Developer
+### The job of a React Developer - Data Flow
 
 1. Decide on Components
 2. Decide the State and where it lives
