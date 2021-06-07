@@ -12,6 +12,7 @@ E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 - `SASS` - A SASS file is a Syntactically Awesome StyleSheets file. It contains Sass syntax, which is an extension of CSS used to format the layout of webpages.
 - [`UTF-8 Dingbats`](https://www.w3schools.com/charsets/ref_utf_dingbats.asp) Represents on browser what characters are displayed in HTML
 - [`Redux Persist`](https://www.npmjs.com/package/redux-persist) is a library that allows saving a Redux store in the local storage of an application.
+- [`lodash`](https://www.npmjs.com/package/lodash.memoize) library has a memoize helper function we can use to memoize selectCollection. `Memoize` does the same idea of memoization as reselect does for our selectors, except this time we're memoizing the return of our function which returns our selector. By wrapping this fucntion in memoize, we're saying that whenever this function gets called and receives collection UrlParam, I want to memoize the return of this function(in this case we return a selector). If this function gets called againg with the same collectionUrlParam, don't rerun this function because we'll return the same value as last time.
 
 ### Getting Started
 
@@ -99,7 +100,7 @@ export const firestore = firebase.firestore()
 
 - When importing SVG in React we can use `import {ReactComponent as Logo}`. The `ReactComponent` import name is special and tells Create React App that you want a React component that renders an SVG, rather than its filename. This is React library special syntax. More info [here](https://create-react-app.dev/docs/adding-images-fonts-and-files/).
 
-### The job of a React Developer
+### The job of a React Developer - Data Flow
 
 1. Decide on Components
 2. Decide the State and where it lives
@@ -111,7 +112,7 @@ export const firestore = firebase.firestore()
 - State is read only (immutability)
 - Changes using pure functions
 
-### Memoization
+### Memoization ~ ~ Caching
 
 - When we use a selector in Redux, the component gets called with every rendering of any other component creating new state every time even if the value is the same.
 - We can cache these selectors(memoization) using reselect library that will check if the values of the selectors are the same the component should not be re rendered. These selectors can be made reusable.
@@ -137,3 +138,19 @@ export const firestore = firebase.firestore()
     (cartItems) => cartItems.reduce((total, item) => total + item.quantity, 0)
   );
   ```
+
+#### Currying is an advanced technique of working with functions. Currying doesn't call a function. It just transforms it.
+
+- Currying is a transformation of functions that translates a function from callable as f(a,b,c) into callable as f(a)(b(c)) ex:
+
+```
+const multiply = (a,b ) => a*b;
+multiply(3,4)
+
+const curriedMultiply = (a) => (b) => a*b
+curriedMultiply(5)(3)
+```
+
+##### Data Normalization
+
+[Hash Tables vs Arrays](https://www.kirupa.com/html5/hashtables_vs_arrays.htm) Storing data in an object(Hash Table) instead of an array for easy, inexpensive search. This is a common computing optimization when talking about data structures.
