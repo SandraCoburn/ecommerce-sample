@@ -1,5 +1,7 @@
 # ecommerce-sample
 
+[Deployed Page](https://sandracoburn.github.io/ecommerce-sample/) with GitHub Pages
+
 E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 
 ## Tech Stack
