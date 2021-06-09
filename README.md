@@ -1,5 +1,7 @@
 # ecommerce-sample
 
+[Deployed app](https://ecommerce-store-sample.herokuapp.com/) to Heroku
+
 E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 
 ## Tech Stack
