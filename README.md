@@ -12,7 +12,9 @@ E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 - `SASS` - A SASS file is a Syntactically Awesome StyleSheets file. It contains Sass syntax, which is an extension of CSS used to format the layout of webpages.
 - [`UTF-8 Dingbats`](https://www.w3schools.com/charsets/ref_utf_dingbats.asp) Represents on browser what characters are displayed in HTML
 - [`Redux Persist`](https://www.npmjs.com/package/redux-persist) is a library that allows saving a Redux store in the local storage of an application.
-- [`lodash`](https://www.npmjs.com/package/lodash.memoize) library has a memoize helper function we can use to memoize selectCollection. `Memoize` does the same idea of memoization as reselect does for our selectors, except this time we're memoizing the return of our function which returns our selector. By wrapping this fucntion in memoize, we're saying that whenever this function gets called and receives collection UrlParam, I want to memoize the return of this function(in this case we return a selector). If this function gets called againg with the same collectionUrlParam, don't rerun this function because we'll return the same value as last time.
+- [`lodash`](https://www.npmjs.com/package/lodash.memoize) library has a memoize helper function we can use to memoize selectCollection. `Memoize` does the same idea of memoization as reselect does for our selectors, except this time we're memoizing the return of our function which returns our selector. By wrapping this fucntion in memoize, we're saying that whenever this function gets called and receives collection UrlParam, we want to memoize the return of this function(in this case we return a selector). If this function gets called again with the same collectionUrlParam, don't rerun this function because we'll return the same value as last time.
+- [`Stripe`](https://stripe.com/docs) sample credit [card](https://stripe.com/docs/testing#cards) for payments: 4242 4242 4242 4242 - exp: 01/23 -- cw: 123
+  - yarn add react-stripe-checkout
 
 ### Getting Started
 
