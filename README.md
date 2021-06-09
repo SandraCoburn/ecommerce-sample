@@ -1,7 +1,5 @@
 # ecommerce-sample
 
-[Deployed Page](https://sandracoburn.github.io/ecommerce-sample/) with GitHub Pages
-
 E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 
 ## Tech Stack
@@ -43,6 +41,17 @@ npm start
 }
 ```
 
+### To deploy to Heroku
+
+- Install CLI
+- Login to Heroku with CLI and create new build Heroku project
+
+```
+heroku login
+heroku create ecommerce-store-sample --buildpack https://github.com/mars/create-react-app-buildpack.git
+git push heroku master
+```
+
 ### Firebase set up
 
 - Create a new projed in your [firebase](https://console.firebase.google.com/u/0/) account
@@ -53,6 +62,7 @@ npm start
 - In your root folder add a new folder for `firebase`
 - Create a new js file `firebase.utils.js`
 - Add Firebase SDK by copying and pasting the firebaseConfig script
+- After deploying go to authentication/authorized domains and add the deployed domain to be able to use the sign in feature
 
 ```
 import firebase from "firebase/app"
