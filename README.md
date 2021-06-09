@@ -17,6 +17,7 @@ E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 - [`lodash`](https://www.npmjs.com/package/lodash.memoize) library has a memoize helper function we can use to memoize selectCollection. `Memoize` does the same idea of memoization as reselect does for our selectors, except this time we're memoizing the return of our function which returns our selector. By wrapping this fucntion in memoize, we're saying that whenever this function gets called and receives collection UrlParam, we want to memoize the return of this function(in this case we return a selector). If this function gets called again with the same collectionUrlParam, don't rerun this function because we'll return the same value as last time.
 - [`Stripe`](https://stripe.com/docs) sample credit [card](https://stripe.com/docs/testing#cards) for payments: 4242 4242 4242 4242 - exp: 01/23 -- cw: 123
   - yarn add react-stripe-checkout
+- Heroku [`Buildpack](https://github.com/mars/create-react-app-buildpack) for create-react-app. Deploy React.js web apps generated with CRA. Automates deployment with the built-in bundler and serves it up via Nginx. This buildpack deploys a React UI as a static web site. The Nginx web server provides optimum performance and security for the runtime.
 
 ### Getting Started
 
@@ -51,7 +52,7 @@ npm start
 ```
 heroku login
 heroku create ecommerce-store-sample --buildpack https://github.com/mars/create-react-app-buildpack.git
-git push heroku master
+git push heroku main
 ```
 
 ### Firebase set up
