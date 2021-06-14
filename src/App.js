@@ -43,7 +43,11 @@ class App extends React.Component {
       }
       setCurrentUser(userAuth);
       //to add shop data to firebase,this collection ref function gets called to initialize it with key, value
-      addCollectionAndDocuments('collections', collectionsArray);
+      //we will map the array to get only some of the values(tile,items)
+      addCollectionAndDocuments(
+        'collections',
+        collectionsArray.map(({ title, items }) => ({ title, items }))
+      );
     });
   }
 
