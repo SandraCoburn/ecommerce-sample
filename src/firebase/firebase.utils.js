@@ -55,7 +55,7 @@ export const addCollectionAndDocuments = async (
   });
   //fireup batch call will return a promise
 
-  batch.commit();
+  return await batch.commit();
 };
 firebase.initializeApp(config);
 export const auth = firebase.auth();
