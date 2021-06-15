@@ -18,6 +18,7 @@ E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 - [`Stripe`](https://stripe.com/docs) sample credit [card](https://stripe.com/docs/testing#cards) for payments: 4242 4242 4242 4242 - exp: 01/23 -- cw: 123
   - yarn add react-stripe-checkout
 - Heroku [`Buildpack](https://github.com/mars/create-react-app-buildpack) for create-react-app. Deploy React.js web apps generated with CRA. Automates deployment with the built-in bundler and serves it up via Nginx. This buildpack deploys a React UI as a static web site. The Nginx web server provides optimum performance and security for the runtime.
+- Firebase [Batched writes](https://firebase.google.com/docs/firestore/manage-data/transactions) - is a set of write operations on one or more documents.
 
 ### Getting Started
 
@@ -121,6 +122,21 @@ export const firestore = firebase.firestore()
 - Set use documentRef objects to perform our CRUD methods.
 - documentRef returns a documentSnapshot object.
 - collectionRef returns a querySnapshot object.
+
+##### Firestore error
+
+- Be sure firestore database has the following conf to prevent permission errors(under rules):
+
+```
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read;
+          allow write: if false;
+    }
+  }
+}
+```
 
 ## React tips
 
