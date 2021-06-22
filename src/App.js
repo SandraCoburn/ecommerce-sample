@@ -14,7 +14,6 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './state/user/user.actions';
 import { selectCurrentUser } from './state/user/user.selectors';
-import { selectCollectionsForPreview } from './state/shop/shop.selectors';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
