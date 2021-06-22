@@ -15,8 +15,8 @@ const ShopPage = (props) => {
   useEffect(() => {
     const collectionRef = firestore.collection('collections');
     collectionRef.onSnapshot(async (snapshot) => {
-      convertCollectionsSnapshotToMap(snapshot);
-      console.log('snapshot', snapshot);
+      const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+      console.log('collection map', collectionsMap);
     });
   }, []);
 
