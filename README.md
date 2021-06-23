@@ -25,6 +25,8 @@ E-commerce app using React, SASS, Redux, Hooks, GraphQL, Stripe, Firebase
 - Clone this project and refresh dependencies then cd into project and start on local host 300
   - `npm install`
   - `npm start`
+- Set your firebase config
+- Set your stripe publishable key
 
 ### To update dependencies
 
@@ -54,7 +56,24 @@ npm start
 heroku login
 heroku create ecommerce-store-sample --buildpack https://github.com/mars/create-react-app-buildpack.git
 git push heroku main
+heroku open
 ```
+
+### To create a new Heroku app
+
+Create a new Heroku project by typing in your terminal:
+
+```
+heroku create
+```
+
+This will crate a new Heroku project for you Then run:
+
+```
+git remote -v
+```
+
+You should see heroku `https://git.heroku.com/<Randmly_generated_name_of_your_app> in the list. This means you have successfully connected your project to the newly created Heroku app under the git remote of heroku.
 
 ### Firebase set up
 
